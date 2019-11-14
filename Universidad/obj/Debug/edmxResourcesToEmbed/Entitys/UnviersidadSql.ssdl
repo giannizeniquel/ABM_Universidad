@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversidadDbSql.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="alumnoId" />
+    </Key>
+    <Property Name="alumnoId" Type="int" Nullable="false" />
+    <Property Name="nombre_a" Type="varchar" MaxLength="50" />
+    <Property Name="apellido_a" Type="varchar" MaxLength="50" />
+    <Property Name="dni_a" Type="varchar" MaxLength="15" />
+    <Property Name="telefono_a" Type="varchar" MaxLength="20" />
+    <Property Name="fechaNacimiento_a" Type="datetime" />
+    <Property Name="edad_a" Type="int" />
+    <Property Name="direccion_a" Type="varchar" MaxLength="200" />
+    <Property Name="pais_a" Type="varchar" MaxLength="50" />
+    <Property Name="provincia_a" Type="varchar" MaxLength="50" />
+    <Property Name="localidad_a" Type="varchar" MaxLength="50" />
+    <Property Name="genero_a" Type="varchar" MaxLength="15" />
+    <Property Name="promedio_a" Type="float" />
+  </EntityType>
+  <EntityType Name="aula">
+    <Key>
+      <PropertyRef Name="aulaId" />
+    </Key>
+    <Property Name="aulaId" Type="int" Nullable="false" />
+    <Property Name="capacidad_au" Type="int" />
+    <Property Name="proyector_au" Type="bit" />
+    <Property Name="conexionRed_au" Type="bit" />
+  </EntityType>
+  <EntityType Name="connectAll">
+    <Key>
+      <PropertyRef Name="connectAllId" />
+    </Key>
+    <Property Name="connectAllId" Type="int" Nullable="false" />
+    <Property Name="alumnoId_1" Type="int" />
+    <Property Name="cursoMateriaId_1" Type="int" />
+    <Property Name="aulaId_1" Type="int" />
+    <Property Name="parcial_1" Type="float" />
+    <Property Name="parcial_2" Type="float" />
+    <Property Name="parcial_3" Type="float" />
+    <Property Name="notaFinal" Type="float" />
+  </EntityType>
+  <EntityType Name="curso">
+    <Key>
+      <PropertyRef Name="cursoId" />
+    </Key>
+    <Property Name="cursoId" Type="int" Nullable="false" />
+    <Property Name="anio_c" Type="int" />
+    <Property Name="division_c" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="cursoMateria">
+    <Key>
+      <PropertyRef Name="cursoMateriaId" />
+    </Key>
+    <Property Name="cursoMateriaId" Type="int" Nullable="false" />
+    <Property Name="materiaId_1" Type="int" />
+    <Property Name="cursoId_1" Type="int" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="materiaId" />
+    </Key>
+    <Property Name="materiaId" Type="int" Nullable="false" />
+    <Property Name="correlativaId" Type="int" />
+    <Property Name="nombre_m" Type="varchar" MaxLength="50" />
+    <Property Name="duracion_m" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="profesorId" />
+    </Key>
+    <Property Name="profesorId" Type="int" Nullable="false" />
+    <Property Name="nombre_p" Type="varchar" MaxLength="50" />
+    <Property Name="apellido_p" Type="varchar" MaxLength="50" />
+    <Property Name="dni_p" Type="varchar" MaxLength="15" />
+    <Property Name="telefono_p" Type="varchar" MaxLength="20" />
+    <Property Name="fechaNacimiento_p" Type="datetime" />
+    <Property Name="edad_p" Type="int" />
+    <Property Name="direccion_p" Type="varchar" MaxLength="200" />
+    <Property Name="pais_p" Type="varchar" MaxLength="50" />
+    <Property Name="provincia_p" Type="varchar" MaxLength="50" />
+    <Property Name="localidad_p" Type="varchar" MaxLength="50" />
+    <Property Name="genero_p" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="ProfesorMateria">
+    <Key>
+      <PropertyRef Name="profesorMateriaId" />
+    </Key>
+    <Property Name="profesorMateriaId" Type="int" Nullable="false" />
+    <Property Name="profesorId_1" Type="int" />
+    <Property Name="materiaId_2" Type="int" />
+    <Property Name="turno" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="fk_fa1">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="0..1" />
+    <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="alumnoId" />
+      </Principal>
+      <Dependent Role="connectAll">
+        <PropertyRef Name="alumnoId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fau1">
+    <End Role="aula" Type="Self.aula" Multiplicity="0..1" />
+    <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aula">
+        <PropertyRef Name="aulaId" />
+      </Principal>
+      <Dependent Role="connectAll">
+        <PropertyRef Name="aulaId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fc1">
+    <End Role="curso" Type="Self.curso" Multiplicity="0..1" />
+    <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="cursoId" />
+      </Principal>
+      <Dependent Role="cursoMateria">
+        <PropertyRef Name="cursoId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fcm1">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="Materia1" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="materiaId" />
+      </Principal>
+      <Dependent Role="Materia1">
+        <PropertyRef Name="correlativaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fcm2">
+    <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="0..1" />
+    <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursoMateria">
+        <PropertyRef Name="cursoMateriaId" />
+      </Principal>
+      <Dependent Role="connectAll">
+        <PropertyRef Name="cursoMateriaId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fm1">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="materiaId" />
+      </Principal>
+      <Dependent Role="cursoMateria">
+        <PropertyRef Name="materiaId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fm2">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+    <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="materiaId" />
+      </Principal>
+      <Dependent Role="ProfesorMateria">
+        <PropertyRef Name="materiaId_2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_fp1">
+    <End Role="profesor" Type="Self.profesor" Multiplicity="0..1" />
+    <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="profesorId" />
+      </Principal>
+      <Dependent Role="ProfesorMateria">
+        <PropertyRef Name="profesorId_1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UniversidadDbSqlStoreContainer">
+    <EntitySet Name="alumno" EntityType="Self.alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aula" EntityType="Self.aula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="connectAll" EntityType="Self.connectAll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso" EntityType="Self.curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cursoMateria" EntityType="Self.cursoMateria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="profesor" EntityType="Self.profesor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfesorMateria" EntityType="Self.ProfesorMateria" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_fa1" Association="Self.fk_fa1">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="connectAll" EntitySet="connectAll" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fau1" Association="Self.fk_fau1">
+      <End Role="aula" EntitySet="aula" />
+      <End Role="connectAll" EntitySet="connectAll" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fc1" Association="Self.fk_fc1">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="cursoMateria" EntitySet="cursoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fcm1" Association="Self.fk_fcm1">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Materia1" EntitySet="Materia" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fcm2" Association="Self.fk_fcm2">
+      <End Role="cursoMateria" EntitySet="cursoMateria" />
+      <End Role="connectAll" EntitySet="connectAll" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fm1" Association="Self.fk_fm1">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="cursoMateria" EntitySet="cursoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fm2" Association="Self.fk_fm2">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+    </AssociationSet>
+    <AssociationSet Name="fk_fp1" Association="Self.fk_fp1">
+      <End Role="profesor" EntitySet="profesor" />
+      <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,55 @@
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\Universidad.exe.config
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\Universidad.exe
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\Universidad.pdb
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\EntityFramework.dll
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\EntityFramework.SqlServer.dll
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\EntityFramework.xml
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\bin\Debug\EntityFramework.SqlServer.xml
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.csprojAssemblyReference.cache
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Properties.Resources.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.csproj.GenerateResource.cache
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.csproj.CoreCompileInputs.cache
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.csproj.CopyComplete
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.exe
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.pdb
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.AlumnoFormulario.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.Contenedor.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.MostrarAlumnos.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.InscripcionMaterias.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.LogIn.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.AlumnoMateriasForms.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.AgregarProfesor.resources
+D:\UTN\Año 2\Lab\Universidad\ProyectoUniversidad3\Visual_Studio_Proyect\Universidad\obj\Debug\Universidad.Forms.MostrarProfesores.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\Universidad.exe.config
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\Universidad.exe
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\Universidad.pdb
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\EntityFramework.dll
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\EntityFramework.xml
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.csprojAssemblyReference.cache
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.AgregarProfesor.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.AlumnoFormulario.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.AlumnoMateriasForms.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.Contenedor.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.InscripcionMaterias.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.LogIn.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.MostrarAlumnos.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.MostrarProfesores.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Properties.Resources.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.csproj.GenerateResource.cache
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.csproj.CoreCompileInputs.cache
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.csproj.CopyComplete
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.exe
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.pdb
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.CalificarAlumnos.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.AsignarMatProfesor.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.ConsultaAlumno.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.ModificarAlumno.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.MostrarMateriaAsignada.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.ModificarProfesor.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.Forms.TurnoProfesor.resources
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\Universidad.exe.manifest
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\bin\Debug\Universidad.application
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.exe.manifest
+C:\Users\giann\Desktop\TSP\TERCER CUATRIMESTRE\Laboratorio de Computacion 3\ABM Universidad\Universidad\obj\Debug\Universidad.application

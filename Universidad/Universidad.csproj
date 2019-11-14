@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E086A80-AB93-43D6-8DEB-ED9AA4C04725}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Universidad</RootNamespace>
+    <AssemblyName>Universidad</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\giann\Desktop\SysUTN\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/Universidad/</UpdateUrl>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A023A153ED7EE77B7AD876743FECC9A82FC08269</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Universidad_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entitys\alumno.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\aula.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\connectAll.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\curso.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\cursoMateria.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\Materia.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\profesor.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\ProfesorMateria.cs">
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\UnviersidadSql.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnviersidadSql.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\UnviersidadSql.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnviersidadSql.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entitys\UnviersidadSql.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnviersidadSql.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AgregarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AgregarProfesor.Designer.cs">
+      <DependentUpon>AgregarProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AlumnoFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AlumnoFormulario.designer.cs">
+      <DependentUpon>AlumnoFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AlumnoMateriasForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AlumnoMateriasForms.Designer.cs">
+      <DependentUpon>AlumnoMateriasForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AsignarMatProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AsignarMatProfesor.Designer.cs">
+      <DependentUpon>AsignarMatProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CalificarAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CalificarAlumnos.Designer.cs">
+      <DependentUpon>CalificarAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConsultaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConsultaAlumno.Designer.cs">
+      <DependentUpon>ConsultaAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Contenedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Contenedor.designer.cs">
+      <DependentUpon>Contenedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InscripcionMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InscripcionMaterias.Designer.cs">
+      <DependentUpon>InscripcionMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModificarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModificarAlumno.Designer.cs">
+      <DependentUpon>ModificarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModificarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModificarProfesor.Designer.cs">
+      <DependentUpon>ModificarProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MostrarAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MostrarAlumnos.Designer.cs">
+      <DependentUpon>MostrarAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MostrarMateriaAsignada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MostrarMateriaAsignada.Designer.cs">
+      <DependentUpon>MostrarMateriaAsignada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MostrarProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MostrarProfesores.Designer.cs">
+      <DependentUpon>MostrarProfesores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TurnoProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TurnoProfesor.Designer.cs">
+      <DependentUpon>TurnoProfesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Script\CargaComboBox.cs" />
+    <Compile Include="Script\DatosEstaticos.cs" />
+    <Compile Include="Script\GestionDb.cs" />
+    <Compile Include="Script\LeerEscribirArchivo.cs" />
+    <Compile Include="Script\Logic.cs" />
+    <Compile Include="UniversidadDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UniversidadDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversidadDataSet6.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\AgregarProfesor.resx">
+      <DependentUpon>AgregarProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlumnoFormulario.resx">
+      <DependentUpon>AlumnoFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlumnoMateriasForms.resx">
+      <DependentUpon>AlumnoMateriasForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AsignarMatProfesor.resx">
+      <DependentUpon>AsignarMatProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CalificarAlumnos.resx">
+      <DependentUpon>CalificarAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConsultaAlumno.resx">
+      <DependentUpon>ConsultaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Contenedor.resx">
+      <DependentUpon>Contenedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InscripcionMaterias.resx">
+      <DependentUpon>InscripcionMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModificarAlumno.resx">
+      <DependentUpon>ModificarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModificarProfesor.resx">
+      <DependentUpon>ModificarProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MostrarAlumnos.resx">
+      <DependentUpon>MostrarAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MostrarMateriaAsignada.resx">
+      <DependentUpon>MostrarMateriaAsignada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MostrarProfesores.resx">
+      <DependentUpon>MostrarProfesores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TurnoProfesor.resx">
+      <DependentUpon>TurnoProfesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entitys\UnviersidadSql.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UnviersidadSql.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entitys\UnviersidadSql.edmx.diagram">
+      <DependentUpon>UnviersidadSql.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="UniversidadDataSet.xsc">
+      <DependentUpon>UniversidadDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet.xss">
+      <DependentUpon>UniversidadDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet1.xsc">
+      <DependentUpon>UniversidadDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet1.xss">
+      <DependentUpon>UniversidadDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet2.xsc">
+      <DependentUpon>UniversidadDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet2.xss">
+      <DependentUpon>UniversidadDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet3.xsc">
+      <DependentUpon>UniversidadDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet3.xss">
+      <DependentUpon>UniversidadDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet4.xsc">
+      <DependentUpon>UniversidadDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet4.xss">
+      <DependentUpon>UniversidadDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet5.xsc">
+      <DependentUpon>UniversidadDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet5.xss">
+      <DependentUpon>UniversidadDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet6.xsc">
+      <DependentUpon>UniversidadDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="UniversidadDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UniversidadDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UniversidadDataSet6.xss">
+      <DependentUpon>UniversidadDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="Universidad_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entitys\UnviersidadSql.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UnviersidadSql.edmx</DependentUpon>
+      <LastGenOutput>UnviersidadSql.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entitys\UnviersidadSql.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UnviersidadSql.edmx</DependentUpon>
+      <LastGenOutput>UnviersidadSql.cs</LastGenOutput>
+    </Content>
+    <Content Include="Icons\Editar_Icon.png" />
+    <Content Include="Icons\Estudiante_Icon.png" />
+    <Content Include="Icons\icono-utn.ico" />
+    <Content Include="Icons\Incribir_Icon.png" />
+    <Content Include="Icons\LogIn_Icon.png" />
+    <Content Include="Icons\Materias_Icon.png" />
+    <Content Include="Icons\Mostar_Icon.png" />
+    <Content Include="Icons\Mostrar2_Icon.png" />
+    <Content Include="Icons\NuevoEstudiante_Icon.png" />
+    <Content Include="Icons\Profesor_Icon.png" />
+    <Content Include="Icons\UTNicono.ico" />
+    <Content Include="Image\logo_utn.png" />
+    <Content Include="Image\Universidad_de_Colima.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

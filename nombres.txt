@@ -1,0 +1,5 @@
+model: UniversidadSql
+
+ConfigApp: UniversidadEntitiesSql
+
+Contexto (modeloEntity): UniversidadDbSql

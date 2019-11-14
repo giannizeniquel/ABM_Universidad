@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UniversidadDbSql.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="alumnoId" />
+          </Key>
+          <Property Name="alumnoId" Type="int" Nullable="false" />
+          <Property Name="nombre_a" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_a" Type="varchar" MaxLength="50" />
+          <Property Name="dni_a" Type="varchar" MaxLength="15" />
+          <Property Name="telefono_a" Type="varchar" MaxLength="20" />
+          <Property Name="fechaNacimiento_a" Type="datetime" />
+          <Property Name="edad_a" Type="int" />
+          <Property Name="direccion_a" Type="varchar" MaxLength="200" />
+          <Property Name="pais_a" Type="varchar" MaxLength="50" />
+          <Property Name="provincia_a" Type="varchar" MaxLength="50" />
+          <Property Name="localidad_a" Type="varchar" MaxLength="50" />
+          <Property Name="genero_a" Type="varchar" MaxLength="15" />
+          <Property Name="promedio_a" Type="float" />
+        </EntityType>
+        <EntityType Name="aula">
+          <Key>
+            <PropertyRef Name="aulaId" />
+          </Key>
+          <Property Name="aulaId" Type="int" Nullable="false" />
+          <Property Name="capacidad_au" Type="int" />
+          <Property Name="proyector_au" Type="bit" />
+          <Property Name="conexionRed_au" Type="bit" />
+        </EntityType>
+        <EntityType Name="connectAll">
+          <Key>
+            <PropertyRef Name="connectAllId" />
+          </Key>
+          <Property Name="connectAllId" Type="int" Nullable="false" />
+          <Property Name="alumnoId_1" Type="int" />
+          <Property Name="cursoMateriaId_1" Type="int" />
+          <Property Name="aulaId_1" Type="int" />
+          <Property Name="parcial_1" Type="float" />
+          <Property Name="parcial_2" Type="float" />
+          <Property Name="parcial_3" Type="float" />
+          <Property Name="notaFinal" Type="float" />
+        </EntityType>
+        <EntityType Name="curso">
+          <Key>
+            <PropertyRef Name="cursoId" />
+          </Key>
+          <Property Name="cursoId" Type="int" Nullable="false" />
+          <Property Name="anio_c" Type="int" />
+          <Property Name="division_c" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="cursoMateria">
+          <Key>
+            <PropertyRef Name="cursoMateriaId" />
+          </Key>
+          <Property Name="cursoMateriaId" Type="int" Nullable="false" />
+          <Property Name="materiaId_1" Type="int" />
+          <Property Name="cursoId_1" Type="int" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="materiaId" />
+          </Key>
+          <Property Name="materiaId" Type="int" Nullable="false" />
+          <Property Name="correlativaId" Type="int" />
+          <Property Name="nombre_m" Type="varchar" MaxLength="50" />
+          <Property Name="duracion_m" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="profesor">
+          <Key>
+            <PropertyRef Name="profesorId" />
+          </Key>
+          <Property Name="profesorId" Type="int" Nullable="false" />
+          <Property Name="nombre_p" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_p" Type="varchar" MaxLength="50" />
+          <Property Name="dni_p" Type="varchar" MaxLength="15" />
+          <Property Name="telefono_p" Type="varchar" MaxLength="20" />
+          <Property Name="fechaNacimiento_p" Type="datetime" />
+          <Property Name="edad_p" Type="int" />
+          <Property Name="direccion_p" Type="varchar" MaxLength="200" />
+          <Property Name="pais_p" Type="varchar" MaxLength="50" />
+          <Property Name="provincia_p" Type="varchar" MaxLength="50" />
+          <Property Name="localidad_p" Type="varchar" MaxLength="50" />
+          <Property Name="genero_p" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="ProfesorMateria">
+          <Key>
+            <PropertyRef Name="profesorMateriaId" />
+          </Key>
+          <Property Name="profesorMateriaId" Type="int" Nullable="false" />
+          <Property Name="profesorId_1" Type="int" />
+          <Property Name="materiaId_2" Type="int" />
+          <Property Name="turno" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="fk_fa1">
+          <End Role="alumno" Type="Self.alumno" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alumno">
+              <PropertyRef Name="alumnoId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="alumnoId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fau1">
+          <End Role="aula" Type="Self.aula" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aula">
+              <PropertyRef Name="aulaId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="aulaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fc1">
+          <End Role="curso" Type="Self.curso" Multiplicity="0..1" />
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="cursoId" />
+            </Principal>
+            <Dependent Role="cursoMateria">
+              <PropertyRef Name="cursoId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fcm1">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="Materia1" Type="Self.Materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="Materia1">
+              <PropertyRef Name="correlativaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fcm2">
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cursoMateria">
+              <PropertyRef Name="cursoMateriaId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="cursoMateriaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fm1">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="cursoMateria">
+              <PropertyRef Name="materiaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fm2">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="ProfesorMateria">
+              <PropertyRef Name="materiaId_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fp1">
+          <End Role="profesor" Type="Self.profesor" Multiplicity="0..1" />
+          <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesor">
+              <PropertyRef Name="profesorId" />
+            </Principal>
+            <Dependent Role="ProfesorMateria">
+              <PropertyRef Name="profesorId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UniversidadDbSqlStoreContainer">
+          <EntitySet Name="alumno" EntityType="Self.alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="aula" EntityType="Self.aula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="connectAll" EntityType="Self.connectAll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="curso" EntityType="Self.curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cursoMateria" EntityType="Self.cursoMateria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="profesor" EntityType="Self.profesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfesorMateria" EntityType="Self.ProfesorMateria" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_fa1" Association="Self.fk_fa1">
+            <End Role="alumno" EntitySet="alumno" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fau1" Association="Self.fk_fau1">
+            <End Role="aula" EntitySet="aula" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fc1" Association="Self.fk_fc1">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fcm1" Association="Self.fk_fcm1">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Materia1" EntitySet="Materia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fcm2" Association="Self.fk_fcm2">
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fm1" Association="Self.fk_fm1">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fm2" Association="Self.fk_fm2">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fp1" Association="Self.fk_fp1">
+            <End Role="profesor" EntitySet="profesor" />
+            <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UniversidadDbSql" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="alumno">
+          <Key>
+            <PropertyRef Name="alumnoId" />
+          </Key>
+          <Property Name="alumnoId" Type="Int32" Nullable="false" />
+          <Property Name="nombre_a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dni_a" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_a" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaNacimiento_a" Type="DateTime" Precision="3" />
+          <Property Name="edad_a" Type="Int32" />
+          <Property Name="direccion_a" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="pais_a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia_a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="localidad_a" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="genero_a" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="connectAll" Relationship="Self.fk_fa1" FromRole="alumno" ToRole="connectAll" />
+          <Property Name="promedio_a" Type="Double" />
+        </EntityType>
+        <EntityType Name="aula">
+          <Key>
+            <PropertyRef Name="aulaId" />
+          </Key>
+          <Property Name="aulaId" Type="Int32" Nullable="false" />
+          <Property Name="capacidad_au" Type="Int32" />
+          <Property Name="proyector_au" Type="Boolean" />
+          <Property Name="conexionRed_au" Type="Boolean" />
+          <NavigationProperty Name="connectAll" Relationship="Self.fk_fau1" FromRole="aula" ToRole="connectAll" />
+        </EntityType>
+        <EntityType Name="connectAll">
+          <Key>
+            <PropertyRef Name="connectAllId" />
+          </Key>
+          <Property Name="connectAllId" Type="Int32" Nullable="false" />
+          <Property Name="alumnoId_1" Type="Int32" />
+          <Property Name="cursoMateriaId_1" Type="Int32" />
+          <Property Name="aulaId_1" Type="Int32" />
+          <NavigationProperty Name="alumno" Relationship="Self.fk_fa1" FromRole="connectAll" ToRole="alumno" />
+          <NavigationProperty Name="aula" Relationship="Self.fk_fau1" FromRole="connectAll" ToRole="aula" />
+          <NavigationProperty Name="cursoMateria" Relationship="Self.fk_fcm1" FromRole="connectAll" ToRole="cursoMateria" />
+          <Property Name="parcial_1" Type="Double" />
+          <Property Name="parcial_2" Type="Double" />
+          <Property Name="parcial_3" Type="Double" />
+          <Property Name="notaFinal" Type="Double" />
+        </EntityType>
+        <EntityType Name="curso">
+          <Key>
+            <PropertyRef Name="cursoId" />
+          </Key>
+          <Property Name="cursoId" Type="Int32" Nullable="false" />
+          <Property Name="anio_c" Type="Int32" />
+          <Property Name="division_c" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cursoMateria" Relationship="Self.fk_fc1" FromRole="curso" ToRole="cursoMateria" />
+        </EntityType>
+        <EntityType Name="cursoMateria">
+          <Key>
+            <PropertyRef Name="cursoMateriaId" />
+          </Key>
+          <Property Name="cursoMateriaId" Type="Int32" Nullable="false" />
+          <Property Name="materiaId_1" Type="Int32" />
+          <Property Name="cursoId_1" Type="Int32" />
+          <NavigationProperty Name="connectAll" Relationship="Self.fk_fcm1" FromRole="cursoMateria" ToRole="connectAll" />
+          <NavigationProperty Name="curso" Relationship="Self.fk_fc1" FromRole="cursoMateria" ToRole="curso" />
+          <NavigationProperty Name="Materia" Relationship="Self.fk_fm1" FromRole="cursoMateria" ToRole="Materia" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="materiaId" />
+          </Key>
+          <Property Name="materiaId" Type="Int32" Nullable="false" />
+          <Property Name="nombre_m" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="duracion_m" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cursoMateria" Relationship="Self.fk_fm1" FromRole="Materia" ToRole="cursoMateria" />
+          <NavigationProperty Name="ProfesorMateria" Relationship="Self.fk_fm2" FromRole="Materia" ToRole="ProfesorMateria" />
+          <Property Name="correlativaId" Type="Int32" />
+          <NavigationProperty Name="Materia1" Relationship="UniversidadDbSql.fk_fcm11" FromRole="Materia" ToRole="Materia1" />
+          <NavigationProperty Name="Materia2" Relationship="UniversidadDbSql.fk_fcm11" FromRole="Materia1" ToRole="Materia" />
+        </EntityType>
+        <EntityType Name="profesor">
+          <Key>
+            <PropertyRef Name="profesorId" />
+          </Key>
+          <Property Name="profesorId" Type="Int32" Nullable="false" />
+          <Property Name="nombre_p" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_p" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dni_p" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_p" Type="String" ConcurrencyMode="None" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="fechaNacimiento_p" Type="DateTime" Precision="3" />
+          <Property Name="edad_p" Type="Int32" />
+          <Property Name="direccion_p" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="pais_p" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincia_p" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="localidad_p" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="genero_p" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProfesorMateria" Relationship="Self.fk_fp1" FromRole="profesor" ToRole="ProfesorMateria" />
+        </EntityType>
+        <EntityType Name="ProfesorMateria">
+          <Key>
+            <PropertyRef Name="profesorMateriaId" />
+          </Key>
+          <Property Name="profesorMateriaId" Type="Int32" Nullable="false" />
+          <Property Name="profesorId_1" Type="Int32" />
+          <Property Name="materiaId_2" Type="Int32" />
+          <Property Name="turno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Materia" Relationship="Self.fk_fm2" FromRole="ProfesorMateria" ToRole="Materia" />
+          <NavigationProperty Name="profesor" Relationship="Self.fk_fp1" FromRole="ProfesorMateria" ToRole="profesor" />
+        </EntityType>
+        <Association Name="fk_fa1">
+          <End Role="alumno" Type="Self.alumno" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="alumno">
+              <PropertyRef Name="alumnoId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="alumnoId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fau1">
+          <End Role="aula" Type="Self.aula" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aula">
+              <PropertyRef Name="aulaId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="aulaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fcm1">
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="0..1" />
+          <End Role="connectAll" Type="Self.connectAll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cursoMateria">
+              <PropertyRef Name="cursoMateriaId" />
+            </Principal>
+            <Dependent Role="connectAll">
+              <PropertyRef Name="cursoMateriaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fc1">
+          <End Role="curso" Type="Self.curso" Multiplicity="0..1" />
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="curso">
+              <PropertyRef Name="cursoId" />
+            </Principal>
+            <Dependent Role="cursoMateria">
+              <PropertyRef Name="cursoId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fm1">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="cursoMateria" Type="Self.cursoMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="cursoMateria">
+              <PropertyRef Name="materiaId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fm2">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="ProfesorMateria">
+              <PropertyRef Name="materiaId_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fp1">
+          <End Role="profesor" Type="Self.profesor" Multiplicity="0..1" />
+          <End Role="ProfesorMateria" Type="Self.ProfesorMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesor">
+              <PropertyRef Name="profesorId" />
+            </Principal>
+            <Dependent Role="ProfesorMateria">
+              <PropertyRef Name="profesorId_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UniversidadEntitiesSql" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="alumno" EntityType="Self.alumno" />
+          <EntitySet Name="aula" EntityType="Self.aula" />
+          <EntitySet Name="connectAll" EntityType="Self.connectAll" />
+          <EntitySet Name="curso" EntityType="Self.curso" />
+          <EntitySet Name="cursoMateria" EntityType="Self.cursoMateria" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" />
+          <EntitySet Name="profesor" EntityType="Self.profesor" />
+          <EntitySet Name="ProfesorMateria" EntityType="Self.ProfesorMateria" />
+          <AssociationSet Name="fk_fa1" Association="Self.fk_fa1">
+            <End Role="alumno" EntitySet="alumno" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fau1" Association="Self.fk_fau1">
+            <End Role="aula" EntitySet="aula" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fcm1" Association="Self.fk_fcm1">
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+            <End Role="connectAll" EntitySet="connectAll" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fc1" Association="Self.fk_fc1">
+            <End Role="curso" EntitySet="curso" />
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fm1" Association="Self.fk_fm1">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="cursoMateria" EntitySet="cursoMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fm2" Association="Self.fk_fm2">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fp1" Association="Self.fk_fp1">
+            <End Role="profesor" EntitySet="profesor" />
+            <End Role="ProfesorMateria" EntitySet="ProfesorMateria" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fcm11" Association="UniversidadDbSql.fk_fcm11">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Materia1" EntitySet="Materia" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="fk_fcm11">
+          <End Type="UniversidadDbSql.Materia" Role="Materia" Multiplicity="0..1" />
+          <End Type="UniversidadDbSql.Materia" Role="Materia1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="materiaId" />
+            </Principal>
+            <Dependent Role="Materia1">
+              <PropertyRef Name="correlativaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UniversidadDbSqlStoreContainer" CdmEntityContainer="UniversidadEntitiesSql">
+          <EntitySetMapping Name="alumno">
+            <EntityTypeMapping TypeName="UniversidadDbSql.alumno">
+              <MappingFragment StoreEntitySet="alumno">
+                <ScalarProperty Name="promedio_a" ColumnName="promedio_a" />
+                <ScalarProperty Name="alumnoId" ColumnName="alumnoId" />
+                <ScalarProperty Name="nombre_a" ColumnName="nombre_a" />
+                <ScalarProperty Name="apellido_a" ColumnName="apellido_a" />
+                <ScalarProperty Name="dni_a" ColumnName="dni_a" />
+                <ScalarProperty Name="telefono_a" ColumnName="telefono_a" />
+                <ScalarProperty Name="fechaNacimiento_a" ColumnName="fechaNacimiento_a" />
+                <ScalarProperty Name="edad_a" ColumnName="edad_a" />
+                <ScalarProperty Name="direccion_a" ColumnName="direccion_a" />
+                <ScalarProperty Name="pais_a" ColumnName="pais_a" />
+                <ScalarProperty Name="provincia_a" ColumnName="provincia_a" />
+                <ScalarProperty Name="localidad_a" ColumnName="localidad_a" />
+                <ScalarProperty Name="genero_a" ColumnName="genero_a" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aula">
+            <EntityTypeMapping TypeName="UniversidadDbSql.aula">
+              <MappingFragment StoreEntitySet="aula">
+                <ScalarProperty Name="aulaId" ColumnName="aulaId" />
+                <ScalarProperty Name="capacidad_au" ColumnName="capacidad_au" />
+                <ScalarProperty Name="proyector_au" ColumnName="proyector_au" />
+                <ScalarProperty Name="conexionRed_au" ColumnName="conexionRed_au" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="connectAll">
+            <EntityTypeMapping TypeName="UniversidadDbSql.connectAll">
+              <MappingFragment StoreEntitySet="connectAll">
+                <ScalarProperty Name="notaFinal" ColumnName="notaFinal" />
+                <ScalarProperty Name="parcial_3" ColumnName="parcial_3" />
+                <ScalarProperty Name="parcial_2" ColumnName="parcial_2" />
+                <ScalarProperty Name="parcial_1" ColumnName="parcial_1" />
+                <ScalarProperty Name="connectAllId" ColumnName="connectAllId" />
+                <ScalarProperty Name="alumnoId_1" ColumnName="alumnoId_1" />
+                <ScalarProperty Name="cursoMateriaId_1" ColumnName="cursoMateriaId_1" />
+                <ScalarProperty Name="aulaId_1" ColumnName="aulaId_1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="curso">
+            <EntityTypeMapping TypeName="UniversidadDbSql.curso">
+              <MappingFragment StoreEntitySet="curso">
+                <ScalarProperty Name="cursoId" ColumnName="cursoId" />
+                <ScalarProperty Name="anio_c" ColumnName="anio_c" />
+                <ScalarProperty Name="division_c" ColumnName="division_c" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cursoMateria">
+            <EntityTypeMapping TypeName="UniversidadDbSql.cursoMateria">
+              <MappingFragment StoreEntitySet="cursoMateria">
+                <ScalarProperty Name="cursoMateriaId" ColumnName="cursoMateriaId" />
+                <ScalarProperty Name="materiaId_1" ColumnName="materiaId_1" />
+                <ScalarProperty Name="cursoId_1" ColumnName="cursoId_1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materia">
+            <EntityTypeMapping TypeName="UniversidadDbSql.Materia">
+              <MappingFragment StoreEntitySet="Materia">
+                <ScalarProperty Name="correlativaId" ColumnName="correlativaId" />
+                <ScalarProperty Name="materiaId" ColumnName="materiaId" />
+                <ScalarProperty Name="nombre_m" ColumnName="nombre_m" />
+                <ScalarProperty Name="duracion_m" ColumnName="duracion_m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profesor">
+            <EntityTypeMapping TypeName="UniversidadDbSql.profesor">
+              <MappingFragment StoreEntitySet="profesor">
+                <ScalarProperty Name="profesorId" ColumnName="profesorId" />
+                <ScalarProperty Name="nombre_p" ColumnName="nombre_p" />
+                <ScalarProperty Name="apellido_p" ColumnName="apellido_p" />
+                <ScalarProperty Name="dni_p" ColumnName="dni_p" />
+                <ScalarProperty Name="telefono_p" ColumnName="telefono_p" />
+                <ScalarProperty Name="fechaNacimiento_p" ColumnName="fechaNacimiento_p" />
+                <ScalarProperty Name="edad_p" ColumnName="edad_p" />
+                <ScalarProperty Name="direccion_p" ColumnName="direccion_p" />
+                <ScalarProperty Name="pais_p" ColumnName="pais_p" />
+                <ScalarProperty Name="provincia_p" ColumnName="provincia_p" />
+                <ScalarProperty Name="localidad_p" ColumnName="localidad_p" />
+                <ScalarProperty Name="genero_p" ColumnName="genero_p" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfesorMateria">
+            <EntityTypeMapping TypeName="UniversidadDbSql.ProfesorMateria">
+              <MappingFragment StoreEntitySet="ProfesorMateria">
+                <ScalarProperty Name="profesorMateriaId" ColumnName="profesorMateriaId" />
+                <ScalarProperty Name="profesorId_1" ColumnName="profesorId_1" />
+                <ScalarProperty Name="materiaId_2" ColumnName="materiaId_2" />
+                <ScalarProperty Name="turno" ColumnName="turno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
